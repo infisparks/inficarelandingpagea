@@ -308,7 +308,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-[#2475E9] to-[#2475E9]/80 rounded-xl flex items-center justify-center shadow-lg">
-              <Stethoscope className="w-5 h-5 text-white" />
+              <img src="/inficarelogo.png" alt="InfiCare Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="text-2xl font-bold text-foreground">InfiCare</span>
@@ -418,7 +418,7 @@ export default function HomePage() {
                       <span className="font-medium group-hover:text-[#2475E9] transition-colors">+91 9958399157</span>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center lg:justify-start group cursor-pointer">
+                  <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#search/infisparks%40gmail.com?compose=new" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center lg:justify-start group cursor-pointer">
                     <div className="w-10 h-10 bg-[#2475E9]/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-[#2475E9]/20 transition-colors">
                       <Mail className="w-4 h-4 text-[#2475E9]" />
                     </div>
@@ -428,7 +428,7 @@ export default function HomePage() {
                         infisparks@gmail.com
                       </span>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -740,7 +740,7 @@ export default function HomePage() {
               {trustedHospitals.map((hospital, index) => (
                 <Card
                   key={index}
-                  className="flex-shrink-0 w-72 text-center p-6 hover:shadow-xl transition-all duration-300 border-2 border-[#2475E9]/20 group bg-white shadow-md hover:shadow-xl snap-start"
+                  className="flex-shrink-0 w-72 text-center p-6 hover:shadow-xl transition-all duration-300 border-2 border-[#2475E9]/20 group bg-white shadow-md snap-start"
                 >
                   <div className="relative mb-6">
                     <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
@@ -772,7 +772,7 @@ export default function HomePage() {
             {trustedHospitals.map((hospital, index) => (
               <Card
                 key={index}
-                className="text-center p-6 hover:shadow-xl transition-all duration-300 border-2 border-[#2475E9]/20 group bg-white shadow-md hover:shadow-xl relative overflow-hidden"
+                className="text-center p-6 hover:shadow-xl transition-all duration-300 border-2 border-[#2475E9]/20 group bg-white shadow-md relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2475E9]/5 via-transparent to-[#2475E9]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10">
@@ -1060,14 +1060,15 @@ export default function HomePage() {
               <Phone className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               Book Your Demo Now
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/20 text-white hover:bg-white/10 text-base md:text-lg px-6 md:px-8 bg-transparent"
+            <a
+              href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#search/infisparks%40gmail.com?compose=new"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md text-base md:text-lg px-6 md:px-8 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-11 border-white/20 text-white hover:bg-white/10 bg-transparent border"
             >
               <Mail className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               Email Us
-            </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -1079,7 +1080,7 @@ export default function HomePage() {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-[#2475E9] to-[#2475E9]/80 rounded-xl flex items-center justify-center shadow-lg">
-                  <Stethoscope className="w-5 h-5 text-white" />
+                  <img src="/inficarelogo.png" alt="InfiCare Logo" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <span className="text-xl md:text-2xl font-bold text-foreground">InfiCare</span>
@@ -1096,7 +1097,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center text-muted-foreground text-sm md:text-base">
                   <Mail className="w-4 h-4 mr-2 text-[#2475E9]" />
-                  <span>infisparks@gmail.com</span>
+                  <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#search/infisparks%40gmail.com?compose=new" target="_blank" rel="noopener noreferrer">infisparks@gmail.com</a>
                 </div>
               </div>
             </div>
@@ -1152,10 +1153,15 @@ export default function HomePage() {
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp Demo
               </Button>
-              <Button variant="outline" className="w-full bg-transparent text-sm md:text-base">
+              <a
+                href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#search/infisparks%40gmail.com?compose=new"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md text-sm md:text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-10 border border-input bg-background hover:bg-accent hover:text-accent-foreground w-full"
+              >
                 <Mail className="w-4 h-4 mr-2" />
                 Email Us
-              </Button>
+              </a>
             </div>
           </div>
 

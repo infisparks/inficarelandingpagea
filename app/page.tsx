@@ -74,7 +74,12 @@ export default function HomePage() {
     const scrollCarousel = () => {
       if (direction === 1) {
         scrollAmount += 1 // Adjust scroll speed here
-        if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
+        // Calculate the maximum scroll amount to show all 10 cards
+        // Each card is 288px (w-72) + 16px gap (gap-4) = 304px per card
+        // Total width for 10 cards = 304 * 10 = 3040px
+        // Subtract the visible width to get max scroll amount
+        const maxScrollAmount = (304 * 10) - carousel.clientWidth
+        if (scrollAmount >= maxScrollAmount) {
           direction = -1
         }
       } else {
@@ -93,106 +98,91 @@ export default function HomePage() {
 
   const features = [
     {
-      icon: Calendar,
-      title: "Appointment & Scheduling",
+      icon: BarChart3,
+      title: "Smart Dashboard & Insights",
       description:
-        "Smart scheduling system with automated reminders, conflict resolution, and multi-provider calendar management for seamless patient booking experience",
+        "Get a bird’s eye view of hospital operations with real-time analytics. Track OPD/IPD data, procedures, discharges, revenue, and more—all in one place. Make faster and smarter decisions with actionable insights.",
       image: "/soft/1.png",
     },
     {
-      icon: CreditCard,
-      title: "Cash/Billing Center",
+      icon: Calendar,
+      title: "Appointment Management",
       description:
-        "Comprehensive billing management with multiple payment options, insurance processing, automated invoicing, and real-time financial reporting",
+        "Easily schedule and manage patient appointments. View details like patient info, consultation type, and fees with just a click. Ensure smooth patient flow and avoid scheduling conflicts.",
         image: "/soft/2.png",
       },
+    // {
+    //   icon: Users,
+    //   title: "O.P.D. Center",
+    //   description:
+    //     "Complete outpatient department management with intelligent queue management, consultation tracking, and patient flow optimization",
+    //   image: "/modern-outpatient-department-management-interface.png",
+    // },
     {
       icon: Users,
-      title: "O.P.D. Center",
+      title: "O.P.D Appointments Overview",
       description:
-        "Complete outpatient department management with intelligent queue management, consultation tracking, and patient flow optimization",
-      image: "/modern-outpatient-department-management-interface.png",
-    },
-    {
-      icon: Bed,
-      title: "I.P.D. Center",
-      description:
-        "Advanced inpatient department management with smart bed allocation, discharge planning, care coordination, and patient monitoring systems",
+        "Stay organized with a clear view of Today , Weekly and All appointments. Patient details, service type, and billing are highlighted in simple cards for quick access. Edit or delete bookings instantly for better control.",
         image: "/soft/3.png",
 
     },
     {
-      icon: TestTube,
-      title: "Laboratory",
+      icon: Stethoscope,
+      title: "O.P.D Management System",
       description:
-        "State-of-the-art lab management with automated testing workflows, quality control protocols, digital reporting, and integration with diagnostic equipment",
+        "Manage Outpatient services effortlessly with a dedicated OPD module. Book appointments, search patients, and track visits with ease. Simplify front-desk operations for patients and staff alike.",
         image: "/soft/4.png",
 
     },
     {
       icon: Pill,
-      title: "Pharmacy & Medicine",
+      title: "I.P.D Patient Management ",
       description:
-        "Integrated pharmacy management with inventory tracking, drug interaction alerts, prescription management, and automated dispensing systems",
+        "Handle Inpatient admissions seamlessly with detailed tracking. Monitor TPA status, deposits, room allocation, and treatment progress. Keep everything updated in real time for better patient care.",
         image: "/soft/5.png",
 
     },
     {
-      icon: Package,
-      title: "Inventory & Stock",
+      icon: CreditCard,
+      title: "Billing & Payments",
       description:
-        "Smart inventory management with automated reordering, expiry tracking, vendor management, and real-time stock level monitoring",
+        "Simplify hospital billing with a transparent financial summary. Track hospital services, consultant charges, payments, and dues all in one place. Generate instant invoices and share digitally with patients.",
         image: "/soft/6.png",
 
     },
     {
-      icon: DollarSign,
-      title: "Payroll Management",
+      icon: Activity,
+      title: "OT & Procedure Management",
       description:
-        "Comprehensive payroll system with attendance tracking, benefits management, tax calculations, and automated salary processing",
+        "Digitally manage Operation Theatre details including OT type, date, surgeon, and procedure notes. Maintain accurate records of surgeries and ensure smooth coordination across teams.",
         image: "/soft/7.png",
 
     },
     {
       icon: BarChart3,
-      title: "Financial Account",
+      title: "Daily Collections Overview",
       description:
-        "Complete financial management with advanced accounting, budgeting tools, financial reporting, and compliance management",
+        "Keep a close eye on your hospital’s revenue with daily collection reports. Track OPD/IPD payments by cash or online mode, and get a clear picture of total collections in real time.",
         image: "/soft/8.png",
 
     },
     {
-      icon: Shield,
-      title: "Security Control",
+      icon: CheckCircle,
+      title: "Discharge Management",
       description:
-        "Enterprise-grade security features with role-based access control, audit trails, data encryption, and compliance monitoring",
+        "Manage discharges efficiently with real-time patient status updates. Track admitted, discharged, partially discharged, or deceased cases instantly. Export data easily for records and reporting.",
         image: "/soft/9.png",
 
     },
     {
-      icon: BarChart3,
-      title: "MIS",
+      icon: Bed,
+      title: "Bed Management System",
       description:
-        "Advanced Management Information System with comprehensive analytics, business intelligence, predictive insights, and custom dashboards",
+        "Optimize hospital resources with smart bed allocation. Monitor available, occupied, and ICU beds in real time. Ensure proper utilization of hospital capacity and improve patient admission processes.",
         image: "/soft/10.png",
 
     },
-    {
-      icon: FileText,
-      title: "Print Receipt/Bills/Reports",
-      description:
-        "Customizable reporting system with automated generation, distribution, template management, and multi-format export capabilities",
-        image: "/soft/1png",
-
-    },
-    {
-      icon: Settings,
-      title: "Administration & Monitoring",
-      description:
-        "Complete administrative control with real-time monitoring, performance tracking, system health alerts, and centralized management",
-        image: "/soft/2.png",
-
-    },
+    
   ]
 
   const trustedHospitals = [
@@ -307,9 +297,7 @@ export default function HomePage() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#2475E9] to-[#2475E9]/80 rounded-xl flex items-center justify-center shadow-lg">
-              <img src="/inficarelogo.png" alt="InfiCare Logo" className="w-full h-full object-cover" />
-            </div>
+            <img src="/inficarelogo.png" alt="InfiCare Logo" className="w-10 h-10 object-contain" />
             <div>
               <span className="text-2xl font-bold text-foreground">InfiCare</span>
               <p className="text-xs text-muted-foreground -mt-1">Healthcare Management</p>
@@ -1079,9 +1067,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#2475E9] to-[#2475E9]/80 rounded-xl flex items-center justify-center shadow-lg">
-                  <img src="/inficarelogo.png" alt="InfiCare Logo" className="w-full h-full object-cover" />
-                </div>
+                <img src="/inficarelogo.png" alt="InfiCare Logo" className="w-10 h-10 object-contain" />
                 <div>
                   <span className="text-xl md:text-2xl font-bold text-foreground">InfiCare</span>
                   <p className="text-xs text-muted-foreground -mt-1">Healthcare Management</p>

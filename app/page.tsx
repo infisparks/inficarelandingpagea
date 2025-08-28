@@ -215,7 +215,7 @@ export default function HomePage() {
       logo: "/logo/medbliss.png",
     },
     {
-      name: "Medzill",
+      name: "Medzeal",
       description: "Digital Health Solutions & Telemedicine",
       location: "Mumbai",
       icon: Globe,
